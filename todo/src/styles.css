@@ -91,7 +91,7 @@ body {
   font-size :25px;
 }
 .form .BMessage a{
-  color: linear-gradient(to left, #c90b73, rgb(172, 24, 209));
+  color: rgb(172, 24, 209);
   text-decoration: none;
 
 }
