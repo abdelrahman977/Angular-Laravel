@@ -18,13 +18,18 @@ export class AppComponent implements OnInit {
     this.loginservice.getCurrentUser(localStorage.getItem('token')).subscribe(data => {
       this.currentUser.username = data.username;
       console.log(data);
-    });
+    },error => { 
+      this.guestLogin();
+      localStorage.removeItem('token')
+      location.reload() });
     else{
-      this.currentUser.username = 'guest';
-      this.currentUser.password = 'guest';
-      localStorage.setItem('guest','true');
-      
+     this.guestLogin();
     }
+  }
+  guestLogin(){
+    this.currentUser.username = 'guest';
+    this.currentUser.password = 'guest';
+    localStorage.setItem('guest','true');
   }
  
 
