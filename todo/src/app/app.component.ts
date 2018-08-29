@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login/login.service'
 import { user } from './objects/user';
+import { MatSnackBar } from '@angular/material';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { user } from './objects/user';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private loginservice: LoginService) { }
+  constructor(private loginservice: LoginService,public snackBar: MatSnackBar) { }
   title = 'app';
   currentUser :user = new user;
   ngOnInit(): void {
@@ -31,7 +32,12 @@ export class AppComponent implements OnInit {
     this.currentUser.password = 'guest';
     localStorage.setItem('guest','true');
   }
- 
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      verticalPosition: 'top',
+      duration: 4000,
+    });
+  }
 
 
 }

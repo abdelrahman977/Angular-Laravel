@@ -106,11 +106,9 @@ textarea {
     font-size: 16px;
 }
 .mat-simple-snackbar {
-  height: max-content;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 17px;
 }
 .mat-simple-snackbar-action {
-  height: auto;
   color: #4CAF50;
 }

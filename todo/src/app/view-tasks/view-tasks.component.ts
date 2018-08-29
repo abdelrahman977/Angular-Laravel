@@ -16,7 +16,6 @@ export class ViewTasksComponent implements OnInit {
   isRead: boolean = true;
 
   ngOnInit() {
-
     if (localStorage.getItem('guest') == 'true') {
       this.show = false;
     }
@@ -34,6 +33,7 @@ export class ViewTasksComponent implements OnInit {
 
   }
   alterCheck(id: number, isChecked) {
+    this.openSnackBar('Loading','')
     this.ViewtasksService.checkOrUncheck(id, isChecked).subscribe(data => {
       for (let i = 0; i < this.toDoListArray.length; i++) {
         if (this.toDoListArray[i].id == data['id']) {
@@ -51,6 +51,7 @@ export class ViewTasksComponent implements OnInit {
     });
   }
   onDelete(id: number) {
+    this.openSnackBar('Loading','')
     this.ViewtasksService.deleteTask(id).subscribe(data => {
       this.ngOnInit()
       this.openSnackBar(data['message'], 'Ok');
@@ -58,6 +59,7 @@ export class ViewTasksComponent implements OnInit {
   }
   onEdit(id:number,description:string) {
     if (this.isRead == false) {
+      this.openSnackBar('Loading','')
       this.ViewtasksService.updateTask(id,description).subscribe(data => {
         console.log(data)
            

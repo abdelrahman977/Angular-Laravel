@@ -17,6 +17,7 @@ export class RegistrationComponent implements OnInit {
 
   }
   onAddNewUser() {
+    this.openSnackBar('Loading','')
     this.registrationService.signup(this.newUser).subscribe(data => {   
       this.openSnackBar(data['message'],'Ok')
     },error =>this.openSnackBar(error['error'].message +' Check *','Ok') 

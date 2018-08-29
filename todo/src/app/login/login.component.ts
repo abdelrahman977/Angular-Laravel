@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
      else this.show = false
   }
   onLogin(){
+    this.openSnackBar('Loading','')
     this.loginservice.login(this.user).subscribe(data => {
       if(data['error'] == undefined){
       localStorage.setItem('token',data['token']);
