@@ -1,0 +1,42 @@
+
+<div *ngIf="show" class="container">
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <mat-expansion-panel *ngFor="let item of toDoListArray">
+
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+
+            {{item.title}}
+          </mat-panel-title>
+          <span class="hover-cursor text-danger pull-right" (click)="onDelete(item.id)">
+            <i class="fa fa-trash-o fa-lg">&nbsp;&nbsp;</i>
+          </span>
+        </mat-expansion-panel-header>
+        <mat-panel-title>
+          <span class="hover-cursor" [class.text-success]="item.isChecked" (click)="alterCheck(item.id,item.isChecked)">
+            <i class="fa fa-lg" [ngClass]="item.isChecked?'fa-check-circle-o':'fa-circle-thin'">&nbsp;&nbsp;</i>
+          </span>
+          <span class="hover-cursor " [class.text-success]="item.isChecked" (click)="onEdit(item.id,item.description)">
+            <i class="fa fa-lg text-danger" [ngClass]="isRead?'fa fa-pencil-square-o':'fa fa-check-square-o'">&nbsp;&nbsp;&nbsp;</i>
+          </span>
+          <input matInput [(ngModel)]="item.description" [readonly]='isRead'>
+        </mat-panel-title>
+
+      </mat-expansion-panel>
+
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!show" class="login-page">
+  <div class="form">
+    <form class="login-form">
+      <p class="BMessage">Please
+        <a routerLink="/login">Login</a> in order to Add tasks</p>
+    </form>
+  </div>
+</div>

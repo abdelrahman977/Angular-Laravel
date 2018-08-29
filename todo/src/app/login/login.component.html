@@ -1,0 +1,26 @@
+
+  <div *ngIf="show" class="login-page">
+      <div class="form">
+        <form class="register-form">
+          <input type="text" placeholder="name"/>
+          <input type="password" placeholder="password"/>
+          <input type="text" placeholder="email address"/>
+          <button>create</button>
+          <p class="message">Already registered? <a href="#">Sign In</a></p>
+        </form>
+        <form class="login-form">
+          <input type="text" placeholder="email" [(ngModel)]='user.email' name="email"/>
+          <input type="password" placeholder="password" [(ngModel)]="user.password" name="password"/>
+          <button (click)="onLogin()">login</button>
+          <p class="message">Not registered? <a  routerLink="/registration">Create an account</a></p>
+        </form>
+      </div>
+    </div>
+      <div *ngIf="!show" class="login-page">
+          <div class="form">
+            <form class="login-form">     
+                <p class="BMessage">You are already logged in.<a (click)="onLogout()"> Sign Out</a> to Login with another account?</p>
+            </form>
+          </div>
+        </div>
+

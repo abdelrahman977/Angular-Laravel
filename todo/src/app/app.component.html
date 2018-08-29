@@ -1,0 +1,35 @@
+<body>
+    <style>
+        </style>
+        
+  <div class="bw-gradient"></div>
+  <div class="header">
+    <div class="sub-header">
+      <ul class="left-menu">
+        <li>
+          <a routerLink="/login">LOGIN</a>
+        </li>
+        <li>
+          <a routerLink="/registration">SIGNUP</a>
+        </li>
+      </ul>
+      <div class="logo">
+        <a>Welcome {{currentUser.username}}</a>
+      </div>
+      <ul class="right-menu">
+        <li>
+          <a routerLink="/addTask">ADD TASK</a>
+        </li>
+        <li>
+          <a routerLink="/viewTasks">VIEW TASK</a>
+        </li>
+        
+      </ul>
+    </div>
+
+  </div>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <router-outlet></router-outlet>
+</body>

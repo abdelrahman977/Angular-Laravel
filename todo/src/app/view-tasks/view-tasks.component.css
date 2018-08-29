@@ -1,0 +1,17 @@
+.text-success {
+    color: #4CAF50!important;
+}
+.list-group-item {
+    font-family: 'Roboto Condensed', sans-serif;
+        font-size: 16px;
+}
+.mat-expansion-panel-header {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+input {
+  
+    border-width: 0px;
+   
+}
