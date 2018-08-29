@@ -18,7 +18,7 @@ export class AddTaskComponent implements OnInit {
     //console.log(this.itemTitle)
     this.openSnackBar('Loading','')
     this.AddtaskService.addTask(this.myTask,localStorage.getItem('token')).subscribe(data => {
-      this.openSnackBar(data['message'],'');
+      this.openSnackBar(data['message'],'Ok');
     },error =>this.openSnackBar(error['error'].message +' Check *','Ok'));
     //this.itemTitle = '';
   }
