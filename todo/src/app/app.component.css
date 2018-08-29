@@ -87,10 +87,11 @@
     border-radius: 2px;
 }
 .sub-header.active ul li a{
-    color: #4CAF50;
+    color: rgb(124, 47, 143);
 }
 .sub-header ul li:hover a{
-    background: #4CAF50;
+    background: linear-gradient(to left, #943e86, rgb(124, 47, 143));
+
 }
 .sub-header.active ul li:hover a{
     background: black;
