@@ -90,7 +90,7 @@
     color: rgb(124, 47, 143);
 }
 .sub-header ul li:hover a{
-    background: linear-gradient(to left, #943e86, rgb(124, 47, 143));
+    background: linear-gradient(to right, #7c0bbe, rgb(96, 35, 138),#7c0bbe);
 
 }
 .sub-header.active ul li:hover a{

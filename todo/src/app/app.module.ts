@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -31,8 +29,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
     MatCheckboxModule,
     MatButtonModule,
     AppRoutingModule,
