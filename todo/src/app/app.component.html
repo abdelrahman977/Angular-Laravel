@@ -7,8 +7,7 @@
     <div class="sub-header">
       <ul class="left-menu">
         <li>
-            <a routerLink="/viewTasks">VIEW TASKS</a>
-          
+            <a  [matBadge]="TasksNumber" matBadgeColor="accent" matBadgePosition="before" routerLink="/viewTasks">VIEW TASKS</a>
         </li>
         <li>
             <a routerLink="/addTask">ADD TASK</a>
@@ -31,5 +30,5 @@
 
   </div>
  
-  <router-outlet></router-outlet>
+  <router-outlet ></router-outlet>
 </body>

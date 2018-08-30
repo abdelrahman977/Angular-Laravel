@@ -16,7 +16,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
+import {MatBadgeModule} from '@angular/material/badge';
+import {SharedService} from './shared-service.service'
 
 
 @NgModule({
@@ -38,11 +39,12 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     HttpClientModule  ,
     HttpClientInMemoryWebApiModule,
     MatExpansionModule ,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatBadgeModule
     
     
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

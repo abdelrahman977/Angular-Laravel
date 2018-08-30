@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login/login.service'
 import { user } from './objects/user';
 import { MatSnackBar } from '@angular/material';
+import { SharedService } from './shared-service.service';
 
 
 @Component({
@@ -10,15 +11,20 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private loginservice: LoginService,public snackBar: MatSnackBar) { }
+  constructor(private loginservice: LoginService,public snackBar: MatSnackBar,private _sharedService: SharedService) { _sharedService.changeEmitted$.subscribe(
+    taskN => {
+        this.TasksNumber= taskN;
+    }); }
   title = 'app';
   currentUser :user = new user;
+  TasksNumber = 0;
   ngOnInit(): void {
-    console.log(localStorage.getItem('token'));
     if(!(localStorage.getItem('token') == null))
     this.loginservice.getCurrentUser(localStorage.getItem('token')).subscribe(data => {
+      this.loginservice.viewtasks(localStorage.getItem('token')).subscribe(data => {
+        this.TasksNumber = data.length;
+      });
       this.currentUser.username = data.username;
-      console.log(data);
     },error => { 
       this.guestLogin();
       localStorage.removeItem('token')
@@ -38,6 +44,6 @@ export class AppComponent implements OnInit {
       duration: 4000,
     });
   }
-
+ 
 
 }

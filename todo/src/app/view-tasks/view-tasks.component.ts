@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ViewTasksService } from './view-tasks.service'
 import { task } from '../objects/task';
 import { MatSnackBar } from '@angular/material';
+import { SharedService } from '../shared-service.service';
 @Component({
   selector: 'app-view-tasks',
   templateUrl: './view-tasks.component.html',
@@ -12,9 +13,10 @@ import { MatSnackBar } from '@angular/material';
 export class ViewTasksComponent implements OnInit {
   toDoListArray: task[] = new Array;
   show: boolean;
-  constructor(private ViewtasksService: ViewTasksService, public snackBar: MatSnackBar) { }
+  constructor(private ViewtasksService: ViewTasksService, public snackBar: MatSnackBar, private _sharedService: SharedService) { }
   isRead: boolean = true;
-
+  
+  
   ngOnInit() {
     if (localStorage.getItem('guest') == 'true') {
       this.show = false;
@@ -23,6 +25,7 @@ export class ViewTasksComponent implements OnInit {
     this.show = true
       this.toDoListArray = new Array;
       this.ViewtasksService.viewtasks(localStorage.getItem('token')).subscribe(data => {
+        this._sharedService.emitChange(data.length);
         for (let i = 0; i < data.length; i++) {
           this.toDoListArray.push(data[i])
         }
