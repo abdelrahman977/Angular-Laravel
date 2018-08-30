@@ -5,6 +5,7 @@ import {ViewTasksComponent} from './view-tasks/view-tasks.component';
 import {LoginComponent} from './login/login.component';
 import {RegistrationComponent} from './registration/registration.component';
 const routes: Routes = [
+  { path: '', component: LoginComponent },
   { path: 'addTask', component: AddTaskComponent },
   { path: 'viewTasks', component: ViewTasksComponent },
   { path: 'login', component: LoginComponent },

@@ -76,12 +76,11 @@
 }
 
 body {
-  background-attachment:fixed;
   background: #76b852; /* fallback for old browsers */
   background: -webkit-linear-gradient(right, #76b852, #8DC26F);
   background: -moz-linear-gradient(right, #76b852, #8DC26F);
   background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to right, #7c0bbe, rgb(178, 63, 255),#7c0bbe);
+  background: linear-gradient(to right, #7c0bbe, rgb(171, 51, 252),#7c0bbe);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
