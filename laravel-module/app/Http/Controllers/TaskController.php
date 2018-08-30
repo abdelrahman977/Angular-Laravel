@@ -57,6 +57,7 @@ class TaskController extends Controller
     {
       $taskId = $request->id;
       $description =  $request->description;
+      if ($description =='') $description ='-';
       DB::update('update tasks set description = ? where id = ?', [$description,$taskId]);
       return response()->json([
         'id' =>  $taskId,
