@@ -13,6 +13,7 @@ import { SharedService } from '../shared-service.service';
 export class ViewTasksComponent implements OnInit {
   toDoListArray: task[] = new Array;
   show: boolean;
+  noTasks:boolean;
   constructor(private ViewtasksService: ViewTasksService, public snackBar: MatSnackBar, private _sharedService: SharedService) { }
   isRead: boolean = true;
   
@@ -26,6 +27,8 @@ export class ViewTasksComponent implements OnInit {
       this.toDoListArray = new Array;
       this.ViewtasksService.viewtasks(localStorage.getItem('token')).subscribe(data => {
         this._sharedService.emitChange(data.length);
+        if(data.length == 0) this.noTasks = true;
+        else this.noTasks = false;
         for (let i = 0; i < data.length; i++) {
           this.toDoListArray.push(data[i])
         }

@@ -1,5 +1,5 @@
 
-<div *ngIf="show" class="container">
+<div *ngIf="show && !noTasks" class="container">
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
@@ -37,6 +37,14 @@
     <form class="login-form">
       <p class="BMessage">Please
         <a routerLink="/login">Login</a> in order to Add tasks</p>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="noTasks" class="login-page">
+  <div class="form">
+    <form class="login-form">
+      <p class="BMessage">You have NO tasks.</p>
     </form>
   </div>
 </div>
