@@ -39,13 +39,11 @@ export class ViewTasksComponent implements OnInit {
 
   }
   alterCheck(id: number, isChecked) {
+    
     this.openSnackBar('Loading','')
+    var index =this.toDoListArray.findIndex(x => x.id==id);
+    this.toDoListArray[index].isChecked = !isChecked;
     this.ViewtasksService.checkOrUncheck(id, isChecked).subscribe(data => {
-      for (let i = 0; i < this.toDoListArray.length; i++) {
-        if (this.toDoListArray[i].id == data['id']) {
-          this.toDoListArray[i].isChecked = data['isChecked']
-        }
-      }
       this.openSnackBar(data['message'], 'Ok');
     })
 
@@ -57,9 +55,12 @@ export class ViewTasksComponent implements OnInit {
     });
   }
   onDelete(id: number) {
+    var index =this.toDoListArray.findIndex(x => x.id==id);
+    this.toDoListArray.splice(index, 1);
+    if(this.toDoListArray.length == 0) this.noTasks = true
+    this._sharedService.emitChange(this.toDoListArray.length);
     this.openSnackBar('Loading','')
     this.ViewtasksService.deleteTask(id).subscribe(data => {
-      this.ngOnInit()
       this.openSnackBar(data['message'], 'Ok');
     })
   }

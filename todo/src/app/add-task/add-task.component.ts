@@ -20,7 +20,7 @@ export class AddTaskComponent implements OnInit {
     this.openSnackBar('Loading','')
     this.AddtaskService.addTask(this.myTask,localStorage.getItem('token')).subscribe(data => {
       this.openSnackBar(data['message'],'Ok');
-      setTimeout( () => { this.router.navigate(['/viewTasks']) }, 2000 );
+      setTimeout( () => { this.router.navigate(['/viewTasks']) }, 1500 );
     },error =>this.openSnackBar(error['error'].message +' Check *','Ok'));
     //this.itemTitle = '';
   }

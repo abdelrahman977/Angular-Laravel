@@ -21,7 +21,7 @@ export class RegistrationComponent implements OnInit {
     this.openSnackBar('Loading','')
     this.registrationService.signup(this.newUser).subscribe(data => {   
       this.openSnackBar(data['message'],'Ok')
-      setTimeout( () => { this.router.navigate(['']) }, 2000 );
+      setTimeout( () => { this.router.navigate(['']) }, 1700 );
     },error =>this.openSnackBar(error['error'].message +' Check *','Ok') 
   );
   }

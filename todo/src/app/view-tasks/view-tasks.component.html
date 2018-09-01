@@ -7,7 +7,7 @@
     <div class="col-md-6 offset-md-3">
       <mat-expansion-panel *ngFor="let item of toDoListArray">
 
-        <mat-expansion-panel-header>
+        <mat-expansion-panel-header [ngClass]="item.isChecked?'checked':'un-checked'">
           <mat-panel-title>
 
             {{item.title}}
@@ -23,9 +23,12 @@
           <span class="hover-cursor " [class.text-success]="item.isChecked" (click)="onEdit(item.id,item.description)">
             <i class="fa fa-lg text-danger" [ngClass]="isRead?'fa fa-pencil-square-o':'fa fa-check-square-o'">&nbsp;&nbsp;&nbsp;</i>
           </span>
-          <input matInput [(ngModel)]="item.description" [readonly]='isRead'>
-        </mat-panel-title>
-
+          
+          <textarea  matInput [(ngModel)]="item.description" [readonly]='isRead'></textarea>     
+          
+      
+      </mat-panel-title>
+  
       </mat-expansion-panel>
 
     </div>
@@ -36,7 +39,7 @@
   <div class="form">
     <form class="login-form">
       <p class="BMessage">Please
-        <a routerLink="/login">Login</a> in order to Add tasks</p>
+        <a routerLink="/login">Login</a> in order to view your tasks</p>
     </form>
   </div>
 </div>

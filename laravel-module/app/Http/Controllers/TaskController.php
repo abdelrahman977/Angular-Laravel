@@ -16,7 +16,7 @@ class TaskController extends Controller
       $title = $request->input('title');
       $description = $request->input('description');
       $isChecked = $request->input('isChecked');
-      if ($description =='') $description ='-';
+      if ($description =='') $description =' ';
       $user = JWTAuth::parseToken()->toUser();
       $userid =  $user->id;
       DB::insert('insert into tasks (title,description, isChecked,user) values (?,?,?,?)',[$title,$description, $isChecked, $userid]);

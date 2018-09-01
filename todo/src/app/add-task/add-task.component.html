@@ -2,7 +2,7 @@
   <div class="form">
     <form class="login-form">
       <input type="text" placeholder="title" [(ngModel)]='myTask.title' name="name" />
-      <p class="SMessage">* Cannot be Empty</p>
+      <p class="SMessage">* Must be filled</p>
       <textarea rows="4" cols="31" placeholder="description" [(ngModel)]='myTask.description' name="description">
           </textarea>
       <button (click)="onAdd()">create task</button>
@@ -13,7 +13,7 @@
   <div class="form">
     <form class="login-form">
       <p class="BMessage">Please
-        <a routerLink="/login">Login</a> in order to Add tasks</p>
+        <a routerLink="/login">Login</a> in order to add new tasks</p>
     </form>
   </div>
 </div>
